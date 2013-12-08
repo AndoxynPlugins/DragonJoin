@@ -1,5 +1,5 @@
 name: ${project.name}
-main: net.daboross.bukkitdev.tenjava.TenJavaPlugin
+main: net.daboross.bukkitdev.dragonjoin.DragonJoinPlugin
 version: ${project.version}
 author: Dabo Ross
 description: ${project.description}
