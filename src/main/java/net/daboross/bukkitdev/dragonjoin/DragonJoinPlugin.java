@@ -20,6 +20,9 @@ import java.util.logging.Level;
 import net.daboross.bukkitdev.dragonjoin.listeners.OnFirstJoinListener;
 import net.daboross.bukkitdev.dragonjoin.listeners.OnJoinListener;
 import net.daboross.bukkitdev.dragonjoin.listeners.OnLeaveListener;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -58,5 +61,14 @@ public class DragonJoinPlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (sender.hasPermission("dragonjoin.trigger") && (sender instanceof Player)) {
+            dc.createDragon(((Player) sender).getLocation());
+            return true;
+        }
+        return false;
     }
 }
