@@ -14,16 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.daboross.bukkitdev.tenjava;
+package net.daboross.bukkitdev.dragonjoin;
 
 import java.util.logging.Level;
-import net.daboross.bukkitdev.tenjava.listeners.OnFirstJoinListener;
-import net.daboross.bukkitdev.tenjava.listeners.OnJoinListener;
-import net.daboross.bukkitdev.tenjava.listeners.OnLeaveListener;
+import net.daboross.bukkitdev.dragonjoin.listeners.OnFirstJoinListener;
+import net.daboross.bukkitdev.dragonjoin.listeners.OnJoinListener;
+import net.daboross.bukkitdev.dragonjoin.listeners.OnLeaveListener;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class TenJavaPlugin extends JavaPlugin {
+public class DragonJoinPlugin extends JavaPlugin {
 
     private DragonCreator dc;
 

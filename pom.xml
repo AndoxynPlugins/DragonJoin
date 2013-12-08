@@ -7,7 +7,7 @@
     <packaging>jar</packaging>
 
     <name>DragonJoin</name>
-    <description>Dragon Join contest plugin</description>
+    <description>Dragon Join plugin</description>
     <url>https://github.com/tenjavacontest/daboross</url>
     <inceptionYear>2013</inceptionYear>
     <licenses>

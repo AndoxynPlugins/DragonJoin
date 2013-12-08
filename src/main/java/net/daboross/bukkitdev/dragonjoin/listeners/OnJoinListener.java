@@ -14,24 +14,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.daboross.bukkitdev.tenjava.listeners;
+package net.daboross.bukkitdev.dragonjoin.listeners;
 
 import lombok.RequiredArgsConstructor;
-import net.daboross.bukkitdev.tenjava.DragonCreator;
+import net.daboross.bukkitdev.dragonjoin.DragonCreator;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 @RequiredArgsConstructor
-public class OnFirstJoinListener implements Listener {
+public class OnJoinListener implements Listener {
 
     private final DragonCreator dc;
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void onJoin(PlayerJoinEvent evt) {
-        if (!evt.getPlayer().hasPlayedBefore()) {
-            dc.createDragon(evt.getPlayer().getLocation());
-        }
+        dc.createDragon(evt.getPlayer().getLocation());
     }
 }

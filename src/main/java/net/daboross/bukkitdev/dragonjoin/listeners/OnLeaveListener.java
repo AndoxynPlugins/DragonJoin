@@ -14,10 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.daboross.bukkitdev.tenjava.listeners;
+package net.daboross.bukkitdev.dragonjoin.listeners;
 
 import lombok.RequiredArgsConstructor;
-import net.daboross.bukkitdev.tenjava.DragonCreator;
+import net.daboross.bukkitdev.dragonjoin.DragonCreator;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
