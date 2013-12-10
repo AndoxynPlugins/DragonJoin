@@ -21,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.plugin.Plugin;
@@ -43,10 +44,17 @@ public class DragonCreator implements Listener {
         run.task = plugin.getServer().getScheduler().runTaskTimer(plugin, run, 1, 1l);
     }
 
+    @EventHandler
     public void onDamage(EntityDamageByEntityEvent evt) {
         if (dragons.contains(evt.getDamager().getEntityId())) {
             evt.setCancelled(true);
         }
+    }
+
+    private boolean isWithin(Location l1, Location l2, double diff) {
+        return (l1.getX() + diff > l2.getX() && l2.getX() + diff > l1.getX())
+                && (l1.getY() + diff > l2.getY() && l2.getY() + diff > l1.getY())
+                && (l1.getZ() + diff > l2.getZ() && l2.getZ() + diff > l1.getZ());
     }
 
     @RequiredArgsConstructor
@@ -69,11 +77,5 @@ public class DragonCreator implements Listener {
                 dragon.setHealth(dragon.getMaxHealth());
             }
         }
-    }
-
-    private boolean isWithin(Location l1, Location l2, double diff) {
-        return (l1.getX() + diff > l2.getX() && l2.getX() + diff > l1.getX())
-                && (l1.getY() + diff > l2.getY() && l2.getY() + diff > l1.getY())
-                && (l1.getZ() + diff > l2.getZ() && l2.getZ() + diff > l1.getZ());
     }
 }
