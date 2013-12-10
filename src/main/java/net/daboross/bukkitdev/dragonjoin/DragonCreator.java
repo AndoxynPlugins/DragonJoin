@@ -36,11 +36,11 @@ public class DragonCreator implements Listener {
 
     public void createDragon(Location target) {
         Vector direction = target.getDirection();
-        Location from = target.clone().add(direction.clone().multiply(100));
+        Location from = target.clone().add(direction.clone().multiply(10));
         LivingEntity i = (LivingEntity) target.getWorld().spawnEntity(from, EntityType.ENDER_DRAGON);
         dragons.add(i.getEntityId());
-        DragonRun run = new DragonRun(i, direction.clone().multiply(-0.001), target, i.getLocation().clone());
-        run.task = plugin.getServer().getScheduler().runTaskTimer(plugin, run, 1, 1);
+        DragonRun run = new DragonRun(i, direction.clone().multiply(-0.005), target, i.getLocation().clone());
+        run.task = plugin.getServer().getScheduler().runTaskTimer(plugin, run, 1, 1l);
     }
 
     public void onDamage(EntityDamageByEntityEvent evt) {
@@ -61,10 +61,12 @@ public class DragonCreator implements Listener {
         @Override
         public void run() {
             dragon.teleport(currentLoc.add(direction));
-            if (isWithin(currentLoc, target, 1)) {
+            if (isWithin(currentLoc, target, 1) || dragon.isDead()) {
                 dragons.remove(dragon.getEntityId());
                 dragon.damage(dragon.getMaxHealth());
                 task.cancel();
+            } else {
+                dragon.setHealth(dragon.getMaxHealth());
             }
         }
     }

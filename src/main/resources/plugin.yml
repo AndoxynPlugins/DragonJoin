@@ -3,3 +3,5 @@ main: net.daboross.bukkitdev.dragonjoin.DragonJoinPlugin
 version: ${project.version}
 author: Dabo Ross
 description: ${project.description}
+commands:
+  dragontrigger:
