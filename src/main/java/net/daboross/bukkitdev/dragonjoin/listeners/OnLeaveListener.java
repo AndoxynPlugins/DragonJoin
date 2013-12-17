@@ -32,5 +32,4 @@ public class OnLeaveListener implements Listener {
     public void onLeave(PlayerQuitEvent evt) {
         dc.createDragon(evt.getPlayer().getLocation());
     }
-
 }
